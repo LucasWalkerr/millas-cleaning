@@ -155,21 +155,136 @@
     padding: 40px 20px;
   }
   
+  .services-list {
+    display: grid;
+    gap: 12px;
+    list-style: none;
+    padding-left: 0;
+    margin-top: 20px;
+  }
+  
   .services-list li {
-    margin-bottom: 10px;
-    padding-left: 10px;
-    border-left: 3px solid var(--primary-color);
-    background: var(--accent-color);
-    margin-top: 10px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    padding: 14px 20px;
+    border-radius: 12px;
+    background: #ffffff; /* branco real para contraste */
+    color: #1f3e34;       /* mantém a cor da sua identidade visual */
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  .services-list li:hover {
+    background: #f2f2f2; /* um cinza bem leve no hover */
+    transform: translateY(-2px);
+  }
+  
+  
+  section h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+  }
+  #about {
+    padding: 100px 20px 80px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  #about h2 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+    position: relative;
+  }
+  
+  #about h2::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 16px auto 0;
+    border-radius: 2px;
+    opacity: 0.6;
+  }
+  
+  #about p {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #333;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.9;
+  }
+  
+  
+  
+  #testimonials {
+    padding: 80px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  #testimonials h2 {
+    font-size: 2.4rem;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    font-weight: 600;
   }
   
   .testimonial {
-    margin-top: 20px;
-    background: var(--accent-color);
-    padding: 20px;
-    border-left: 4px solid var(--primary-color);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    background: #ffffff;
+    padding: 30px 25px;
+    margin-bottom: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+    text-align: left;
+    position: relative;
   }
+  
+  .testimonial::before {
+    content: "“";
+    font-size: 4rem;
+    color: var(--primary-color);
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    opacity: 0.2;
+    font-family: serif;
+  }
+  
+  .testimonial p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 0 0 12px;
+    color: #333;
+  }
+  
+  .testimonial span {
+    display: block;
+    font-weight: 500;
+    color: var(--primary-color);
+    font-size: 1rem;
+  }
+  .testimonial span {
+    font-weight: 600;
+    color: #1f3e34;
+    font-size: 1rem;
+    opacity: 0.85;
+  }
+  .testimonial::before {
+    font-size: 5rem;
+    top: -30px;
+    left: 15px;
+    opacity: 0.08;
+  }
+    
   
   .album {
     margin-bottom: 40px;
@@ -259,30 +374,44 @@
     background: var(--hover-color);
   }
   
+  #contact {
+    padding: 100px 20px 80px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
   #contact h2 {
+    font-size: 2rem;
+    margin-bottom: 32px;
+    color: var(--primary-color);
+    text-align: center;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: var(--primary-color);
   }
   
   .contact-box {
-    background: var(--accent-color);
+    background: #ffffff;
     border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    border-radius: 16px;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
   }
   
   .contact-box p {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 16px;
-    margin: 10px 0;
+    font-size: 1.05rem;
+    color: #333;
+    margin: 12px 0;
+  }
+  
+  .contact-box i {
+    color: var(--primary-color);
+    font-size: 1.2rem;
   }
   
   .contact-box a {
@@ -292,9 +421,45 @@
   }
   
   .contact-box a:hover {
-    color: var(--hover-color);
     text-decoration: underline;
+    color: var(--hover-color);
   }
+  
+  #contact-form input,
+  #contact-form textarea {
+    width: 100%;
+    margin-top: 12px;
+    padding: 14px 16px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    font-size: 1rem;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    transition: border-color 0.2s ease;
+  }
+  
+  #contact-form input:focus,
+  #contact-form textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+  }
+  
+  #contact-form button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  #contact-form button::after {
+    content: "✉️";
+    font-size: 1.1rem;
+    transition: transform 0.2s ease;
+  }
+  
+  #contact-form button:hover::after {
+    transform: translateX(4px);
+  }
+  
   
   footer {
     text-align: center;
@@ -411,4 +576,253 @@
     cursor: pointer;
     user-select: none;
   }
+  .galleries-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
+  }
   
+  .galleries-wrapper .album {
+    flex: 1 1 48%;
+    background: var(--accent-color);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    text-align: center;
+  }
+  
+  .album-thumbnails img.thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* mantém proporção responsiva */
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  /* Responsivo: empilha os cards em telas menores */
+  @media (max-width: 768px) {
+    .galleries-wrapper {
+      flex-direction: column;
+    }
+  
+    .galleries-wrapper .album {
+      flex: 1 1 100%;
+    }
+  }
+  /* =============================
+   Milla's Cleaning Services - Style
+   ============================= */
+
+:root {
+  --primary-color: #1f3e34;
+  --secondary-color: #dceae3;
+  --accent-color: #ffffff;
+  --text-color: #1f3e34;
+  --hover-color: #163229;
+  --highlight-color: #3498db;
+  --soft-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  --light-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--secondary-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+header {
+  background: var(--accent-color);
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--light-shadow);
+  animation: slideDown 0.6s ease forwards;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.logo img {
+  max-height: 40px;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--primary-color);
+  position: relative;
+  font-weight: 500;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background: var(--primary-color);
+}
+
+#hero {
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-color);
+  background: url('https://cdn.prod.website-files.com/60eece3229f951ea48ce43b4/66d1b237781950cd5d89fc34_history-of-housecleaning-and-maid-services.webp') center/cover no-repeat;
+  overflow: hidden;
+}
+
+#hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  padding: 20px;
+  text-align: center;
+  animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content h1 {
+  font-size: 2.6rem;
+  margin-bottom: 10px;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #eaeaea;
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: var(--accent-color);
+  color: var(--primary-color);
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: var(--light-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  background: var(--primary-color);
+  color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: var(--soft-shadow);
+}
+
+section {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInSection 1s ease forwards;
+}
+
+@keyframes fadeInSection {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.services-list li {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.album-thumbnails img {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.album-thumbnails img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #eee;
+  margin-top: 40px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.whatsapp-float {
+  animation: popIn 0.5s ease 1.2s backwards;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

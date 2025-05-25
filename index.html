@@ -8,7 +8,16 @@
   <meta name="author" content="Milla's Cleaning Services">
   <title>Milla's Cleaning Services | Las Vegas</title>
   <link rel="stylesheet" href="style.css">
+<!-- Social Preview / WhatsApp -->
+<meta property="og:title" content="Milla's Cleaning Services" />
+<meta property="og:description" content="Eco-friendly cleaning services in Las Vegas. Trusted, professional, and always on time!" />
+<meta property="og:image" content="https://millascleaning.com/img/millas_cleaning_services.jpg" />
+<meta property="og:url" content="https://millascleaning.com/" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
 
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="https://millascleaning.com/img/millas_cleaning_services.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet">
@@ -43,10 +52,17 @@
       </div>
     </section>
 
-    <section id="about">
-      <h2>Meet Milla</h2>
-      <p>With years of experience, Milla offers top-tier cleaning services to homes and offices throughout Las Vegas. Every job is completed with passion, precision, and environmentally responsible products.</p>
-    </section>
+    <section id="about" class="about-section">
+      <div class="about-container">
+        <div class="about-image">
+
+        </div>
+        <div class="about-text">
+          <h2>Meet Milla</h2>
+          <p>With years of experience, Milla offers top-tier cleaning services to homes and offices throughout Las Vegas. Every job is completed with passion, precision, and environmentally responsible products.</p>
+        </div>
+      </div>
+    </section>    
 
     <section id="services">
       <h2>Our Services</h2>
@@ -84,13 +100,22 @@
 
     <section id="gallery">
       <h2>Completed Projects</h2>
-
-      <div class="album">
-        <h3>Gallery 1</h3>
-        <div class="album-thumbnails" data-gallery="whats1">
-          <img src="img/WhatsApp Image 2025-05-15 at 4.41.05 PM.jpeg" alt="Thumb WhatsApp" class="thumb">
+    
+      <div class="galleries-wrapper">
+        <div class="album">
+          <h3>Gallery 1</h3>
+          <div class="album-thumbnails" data-gallery="whats1">
+            <img src="img/WhatsApp Image 2025-05-15 at 4.41.49 PM (4).jpeg" alt="Thumb WhatsApp" class="thumb">
+          </div>
         </div>
-      </div>
+    
+        <div class="album">
+          <h3>Gallery 2</h3>
+          <div class="album-thumbnails" data-gallery="whats2">
+            <img src="img/DSC00970.webp" alt="Thumb WhatsApp" class="thumb">
+          </div>
+        </div>
+      </div>    
 
       <div id="lightbox" class="lightbox">
         <span class="close-lightbox">&times;</span>
@@ -107,12 +132,12 @@
       <h2><i class="fas fa-phone-alt"></i> Contact Milla Directly</h2>
     
       <div class="contact-box">
-        <p><i class="fas fa-phone"></i> <a href="tel:+170224994329">+1 (702) 499-4329</a></p>
-        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/170224994329" target="_blank">Chat on WhatsApp</a></p>
+        <p><i class="fas fa-phone"></i> <a href="tel:+17024994329">+1 (702) 499-4329</a></p>
+        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/17024994329" target="_blank">Chat on WhatsApp</a></p>
         <p><i class="fas fa-envelope"></i> <a href="mailto:millascleaninglasvegas@gmail.com">millascleaninglasvegas@gmail.com</a></p>
       </div>
     
-      <form id="contact-form" action="mailto:millascleaninglasvegas@gmail.com" method="POST" enctype="text/plain">
+      <form id="contact-form" action="https://formsubmit.co/millascleaninglasvegas@gmail.com" method="POST">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
         <textarea name="message" placeholder="Tell us about your cleaning needs..." required></textarea>
@@ -120,7 +145,8 @@
       </form>
     
       <p id="form-msg"></p>
-    </section>    
+    </section>
+        
   </main>
 
   <footer>

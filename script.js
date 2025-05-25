@@ -19,7 +19,26 @@ document.addEventListener("DOMContentLoaded", () => {
       { src: "img/WhatsApp Image 2025-05-16 at 4.28.29 PM (1).jpeg", caption: "Image 16" },
       { src: "img/WhatsApp Image 2025-05-16 at 4.28.29 PM.jpeg", caption: "Image 17" },
       { src: "img/WhatsApp Image 2025-05-16 at 4.28.30 PM.jpeg", caption: "Image 18" }
-    ]
+    ],
+    whats2: [
+      { src: "img/DSC00966.webp", caption: "Imagem 1" },
+      { src: "img/DSC00967.webp", caption: "Imagem 2" },
+      { src: "img/DSC00968.webp", caption: "Imagem 3" },
+      { src: "img/DSC00969.webp", caption: "Imagem 4" },
+      { src: "img/DSC00970.webp", caption: "Imagem 5" },
+      { src: "img/DSC00971.webp", caption: "Imagem 6" },
+      { src: "img/DSC00982.webp", caption: "Imagem 7" },
+      { src: "img/DSC00983.webp", caption: "Imagem 8" },
+      { src: "img/DSC00984.webp", caption: "Imagem 9" },
+      { src: "img/DSC00985.webp", caption: "Imagem 10" },
+      { src: "img/DSC00981.webp", caption: "Imagem 11" },
+      { src: "img/DSC00980.webp", caption: "Imagem 12" },
+      { src: "img/DSC00979.webp", caption: "Imagem 13" },
+      { src: "img/DSC00978.webp", caption: "Imagem 14" },
+      { src: "img/DSC00977.webp", caption: "Imagem 15" },
+      { src: "img/DSC00976.webp", caption: "Imagem 16" },
+      { src: "img/DSC00975.webp", caption: "Imagem 17" }
+    ]    
   };
 
   let currentGallery = [];
@@ -32,20 +51,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const prevBtn = document.getElementById("prev");
   const nextBtn = document.getElementById("next");
 
-  // Proteção: se galeria estiver presente
-  if (lightbox && lightboxImg && lightboxCaption && closeBtn && prevBtn && nextBtn) {
-    document.querySelectorAll(".album-thumbnails").forEach(thumb => {
-      thumb.addEventListener("click", () => {
-        const galleryName = thumb.getAttribute("data-gallery");
-        currentGallery = galleryImages[galleryName] || [];
-        if (currentGallery.length > 0) {
-          currentIndex = 0;
-          showImage();
-          lightbox.style.display = "flex";
-        }
-      });
+  document.querySelectorAll(".album-thumbnails").forEach(thumb => {
+    thumb.addEventListener("click", () => {
+      const galleryName = thumb.getAttribute("data-gallery");
+      currentGallery = galleryImages[galleryName] || [];
+      if (currentGallery.length > 0) {
+        currentIndex = 0;
+        showImage();
+        lightbox.style.display = "flex";
+      }
     });
+  });
 
+  if (lightbox && lightboxImg && lightboxCaption && closeBtn && prevBtn && nextBtn) {
     prevBtn.addEventListener("click", () => {
       currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
       showImage();
@@ -65,27 +83,55 @@ document.addEventListener("DOMContentLoaded", () => {
       lightboxImg.style.transform = lightboxImg.style.transform === "scale(2)" ? "scale(1)" : "scale(2)";
     });
 
-    lightbox.addEventListener("click", (e) => {
+    lightbox.addEventListener("click", e => {
       if (e.target === lightbox) {
         lightbox.style.display = "none";
         lightboxImg.style.transform = "scale(1)";
       }
     });
-
-    function showImage() {
-      const { src, caption } = currentGallery[currentIndex];
-      lightboxImg.src = src;
-      lightboxCaption.textContent = caption;
-    }
   }
 
-  // ✅ Menu hamburguer
-  const burger = document.querySelector('.burger');
-  const nav = document.querySelector('.nav-links');
+  function showImage() {
+    const { src, caption } = currentGallery[currentIndex];
+    lightboxImg.src = src;
+    lightboxCaption.textContent = caption;
+  }
 
-  if (burger && nav) {
-    burger.addEventListener('click', () => {
-      nav.classList.toggle('active');
+  // ========== Animação de entrada (scroll suave nas seções) ==========
+  const animatedSections = document.querySelectorAll("section");
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+  animatedSections.forEach(section => observer.observe(section));
+
+  // ========== Scroll suave para links de âncora ==========
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        e.preventDefault();
+        const yOffset = -100; // altura do header fixo
+        const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    });
+  });
+
+  // ========== Mensagem ao enviar o formulário ==========
+  const form = document.getElementById("contact-form");
+  const formMsg = document.getElementById("form-msg");
+  if (form && formMsg) {
+    form.addEventListener("submit", () => {
+      formMsg.textContent = "Sending...";
+      formMsg.style.color = "#1f3e34";
     });
   }
 });
