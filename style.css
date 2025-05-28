@@ -1,88 +1,128 @@
 /* =============================
-   Milla's Cleaning Services - Style
+   Milla's Cleaning Services - Menu Limpo
    ============================= */
 
-   :root {
-    --primary-color: #1f3e34;
-    --secondary-color: #dceae3;
-    --accent-color: #ffffff;
-    --text-color: #1f3e34;
-    --hover-color: #163229;
-    --highlight-color: #3498db;
-  }
-  
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    background: var(--secondary-color);
-    color: var(--text-color);
-    line-height: 1.6;
-  }
-  
-  header {
-    background: var(--accent-color);
-    padding: 20px;
-    border-bottom: 1px solid #ddd;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  
-  .logo img {
-    max-height: 40px;
-    object-fit: contain;
-  }
-  
-  .nav-links {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-  }
-  
-  .nav-links li a {
-    text-decoration: none;
-    color: var(--primary-color);
-    position: relative;
-    font-weight: 500;
-  }
-  
-  .nav-links li a::after {
-    content: '';
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--primary-color);
-    transition: width 0.3s ease;
-  }
-  
-  .nav-links li a:hover::after {
-    width: 100%;
-  }
-  
+/* Variáveis */
+:root {
+  --primary-color: #1f3e34;
+  --secondary-color: #dceae3;
+  --accent-color: #ffffff;
+  --text-color: #1f3e34;
+  --hover-color: #163229;
+  --highlight-color: #3498db;
+  --soft-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  --light-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* Reset e base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--secondary-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* Header */
+header {
+  background: var(--accent-color);
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--light-shadow);
+}
+
+/* Logo */
+.logo img {
+  max-height: 40px;
+  object-fit: contain;
+}
+
+/* NAV MENU DESKTOP */
+.nav-links {
+  display: none;
+  gap: 20px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--primary-color);
+  position: relative;
+  font-weight: 500;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  z-index: 1001;
+}
+
+.burger span {
+  width: 25px;
+  height: 3px;
+  background: var(--primary-color);
+  display: block;
+  border-radius: 3px;
+}
+
+@media (max-width: 768px) {
   .burger {
+    display: flex;
+  }
+
+  .nav-links {
     display: none;
     flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: var(--accent-color);
+    padding: 20px;
+    border-radius: 10px;
+    gap: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    z-index: 999;
   }
-  
-  .burger div {
-    width: 25px;
-    height: 3px;
-    background: var(--primary-color);
+
+  .nav-links.active {
+    display: flex !important;
   }
-  
+}
+
+    
   #hero {
     position: relative;
     max-width: 100% !important;
@@ -268,11 +308,7 @@
   
   .testimonial span {
     display: block;
-    font-weight: 500;
-    color: var(--primary-color);
     font-size: 1rem;
-  }
-  .testimonial span {
     font-weight: 600;
     color: #1f3e34;
     font-size: 1rem;
@@ -490,39 +526,7 @@
     background-color: #1ebe5d;
   }
   
-  @media (max-width: 768px) {
-    .nav-links {
-      position: absolute;
-      top: 70px;
-      right: 0;
-      background: var(--accent-color);
-      flex-direction: column;
-      width: 200px;
-      border: 1px solid #ddd;
-      display: none;
-      padding: 20px;
-    }
   
-    .nav-links.active {
-      display: flex;
-    }
-  
-    .burger {
-      display: flex;
-    }
-  
-    #hero {
-      padding: 40px 20px;
-    }
-  
-    .btn {
-      padding: 10px 20px;
-    }
-  
-    .album-thumbnails {
-      justify-content: center;
-    }
-  }
   .lightbox {
     display: none;
     position: fixed;
@@ -666,11 +670,6 @@ header {
   object-fit: contain;
 }
 
-.nav-links {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-}
 
 .nav-links li a {
   text-decoration: none;
@@ -690,22 +689,7 @@ header {
   transition: width 0.3s ease;
 }
 
-.nav-links li a:hover::after {
-  width: 100%;
-}
 
-.burger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-}
-
-.burger div {
-  width: 25px;
-  height: 3px;
-  background: var(--primary-color);
-}
 
 #hero {
   position: relative;

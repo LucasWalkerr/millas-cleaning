@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
       { src: "img/DSC00977.webp", caption: "Imagem 15" },
       { src: "img/DSC00976.webp", caption: "Imagem 16" },
       { src: "img/DSC00975.webp", caption: "Imagem 17" }
-    ]    
+    ]
   };
 
   let currentGallery = [];
@@ -63,6 +63,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Show Image Function
+  function showImage() {
+    const { src, caption } = currentGallery[currentIndex];
+    lightboxImg.src = src;
+    lightboxCaption.textContent = caption;
+  }
+
+  // Navigation Arrows
   if (lightbox && lightboxImg && lightboxCaption && closeBtn && prevBtn && nextBtn) {
     prevBtn.addEventListener("click", () => {
       currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
@@ -91,13 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  function showImage() {
-    const { src, caption } = currentGallery[currentIndex];
-    lightboxImg.src = src;
-    lightboxCaption.textContent = caption;
-  }
-
-  // ========== Animação de entrada (scroll suave nas seções) ==========
+  // Intersection Observer for Animations
   const animatedSections = document.querySelectorAll("section");
   const observer = new IntersectionObserver(
     entries => {
@@ -110,28 +112,59 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     { threshold: 0.15 }
   );
-  animatedSections.forEach(section => observer.observe(section));
+  
+  animatedSections.forEach(section => {
+    section.style.opacity = "0";
+    section.style.transform = "translateY(40px)";
+    observer.observe(section);
+  });
 
-  // ========== Scroll suave para links de âncora ==========
+  // Smooth Scroll
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener("click", function (e) {
       const target = document.querySelector(this.getAttribute("href"));
       if (target) {
         e.preventDefault();
-        const yOffset = -100; // altura do header fixo
+        const yOffset = -100; // Adjust for header offset
         const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
         window.scrollTo({ top: y, behavior: "smooth" });
       }
     });
   });
 
-  // ========== Mensagem ao enviar o formulário ==========
+  // Form Submission Handling
   const form = document.getElementById("contact-form");
   const formMsg = document.getElementById("form-msg");
   if (form && formMsg) {
-    form.addEventListener("submit", () => {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault(); // Prevent form refresh
       formMsg.textContent = "Sending...";
       formMsg.style.color = "#1f3e34";
+
+      // You can display a success message here after form submission
+      setTimeout(() => {
+        formMsg.textContent = "Your message has been sent!";
+        formMsg.style.color = "#28a745";
+      }, 2000); // Simulating form submission success
+    });
+  }
+
+  // Burger Menu Toggle
+  const burger = document.querySelector(".burger");
+  const navMenu = document.querySelector(".nav-links");
+
+  if (burger && navMenu) {
+    burger.addEventListener("click", () => {
+      const isExpanded = burger.getAttribute("aria-expanded") === "true";
+      burger.setAttribute("aria-expanded", String(!isExpanded));
+      navMenu.classList.toggle("active");
+    });
+
+    navMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("active");
+        burger.setAttribute("aria-expanded", "false");
+      });
     });
   }
 });
